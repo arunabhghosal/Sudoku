@@ -59,6 +59,7 @@ class sudokuv1
                 }
 
         }
+        //This will generate a valid suduko with all the cells filled
         public static void generate()
         {
                 int k=1,n=1;
@@ -86,12 +87,14 @@ class sudokuv1
                         n=(n%9)+1;
                 }
         }
+        //This function generate random number and calls permutation_row and permutation_coloumn
 public static void random_gen(int check){
                 int k1,k2,max=2,min=0;
                 Random r= new Random();
                 for(int i=0;i<3;i++)
                 {
                         k1=r.nextInt(max-min+1)+min;
+                        //To ensure random numbers are not same
                         do{
                                 k2=r.nextInt(max-min+1)+min;
                         }while(k1==k2);
@@ -106,6 +109,7 @@ public static void random_gen(int check){
         }
         public static void permutation_row(int k1,int k2){
                 int temp;
+                //Interchange the elements of two rows within a group.
                         for(int j=0;j<9;j++)
                         {
                                 temp=a[k1][j];
@@ -115,6 +119,7 @@ public static void random_gen(int check){
         }
         public static void permutation_col(int k1,int k2){
                 int temp;
+                //Interchange the elements of two coloumns within a group.
                 for(int j=0;j<9;j++)
                 {
                         temp=a[j][k1];
@@ -123,6 +128,7 @@ public static void random_gen(int check){
                 }
 
         }
+        //Interchange two groups of 3 rows
         public static void row_change(int k1,int k2)
         {
                 int temp;
@@ -139,6 +145,7 @@ public static void random_gen(int check){
 
                }
         }
+        //Interchange two groups of 3 columns
         public static void col_change(int k1,int k2)
         {
                 int temp;
@@ -154,6 +161,7 @@ public static void random_gen(int check){
                         k2++;
                 }
         }
+        //This function is to check and strike out numbers
         public static void strike_out(int k1,int k2)
         {
                 int row_from;
